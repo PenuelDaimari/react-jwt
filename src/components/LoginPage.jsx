@@ -1,9 +1,10 @@
+import axios from 'axios';
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 const LoginPage = () => {
   const [formData, setFormData] = useState({
-    username: "",
+    email: "",
     password: "",
   });
   const [error, setError] = useState({});
@@ -17,8 +18,8 @@ const LoginPage = () => {
   const validateForm = () => {
     const newError = {};
     let isValid = true;
-    if (!formData.username) {
-      newError.username = "*Username is required";
+    if (!formData.email) {
+      newError.email = "*email is required";
       isValid = false;
     }
     if (!formData.password) {
@@ -32,11 +33,12 @@ const LoginPage = () => {
     return isValid;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (validateForm()) {
       console.log("Form Data:", formData);
+        const response = await axios.post(`http://localhost:3000/login'}`, formData);
       setSubmitted(true);
     } else {
       //
@@ -67,12 +69,12 @@ const LoginPage = () => {
               <div className="input-box">
                 <input
                   type="text"
-                  value={formData.username}
-                  name="username"
-                  placeholder="Username"
+                  value={formData.email}
+                  name="email"
+                  placeholder="email"
                   onChange={handleInputChange}
                 />
-                {error.username && <p className="error">{error.username}</p>}
+                {error.email && <p className="error">{error.email}</p>}
               </div>
               <div className="input-box">
                 <input

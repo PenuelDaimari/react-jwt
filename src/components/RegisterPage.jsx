@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -46,15 +48,14 @@ const RegisterPage = () => {
     return isValid;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
 
     if (validateForm()) {
       console.log("Form Data:", formData);
+        const response = await axios.post('http://[::1]:3000/signup', formData);
+        console.log(response)
       setSubmitted(true);
-    } else {
-      //
     }
   };
   return (

@@ -4,7 +4,7 @@ const HomePage = () => {
   return (
     <div>
       <header>
-        <h1>REACT</h1>
+        <h1>PING</h1>
         <nav>
           <Link to="/">Home</Link>
           <Link to="/login">Login</Link>

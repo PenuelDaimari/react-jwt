@@ -10,8 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url("C:\Users\ishan\Downloads\futuristic-night-city-background\2351186.jpg")
-    no-repeat;
+  background: black;
   background-size: cover;
   background-position: center;
 }
